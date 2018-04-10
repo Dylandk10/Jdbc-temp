@@ -6,7 +6,7 @@ import java.sql.SQLException;
 //basic inserting data to database
 public class DataInsert {
 	
-	public DataInsert() throws SQLException {
+	public DataInsert(String name, String lastName, String newEmail, String position, int newSalary) throws SQLException {
 		Connection myConn = null;
 		Statement myStmt = null;
 		ResultSet myRes = null;
@@ -20,7 +20,7 @@ public class DataInsert {
 		
 		//give dynamic fields
 		int rowsAffected = myStmt.executeUpdate("insert into employees " + "(last_name, first_name, email, department, salary) "
-		+"values " + "('Wright', 'Eric', 'eric.wright$foo.com', 'HR', 3300.00)" );
+		+"values " + "('" + lastName + "','" + name + " ," + newEmail + "','" + position + "','" + newSalary + "')" );
 		
 		myRes = myStmt.executeQuery("select * from employees order by last_name");
 		

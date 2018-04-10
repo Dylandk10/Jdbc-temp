@@ -3,7 +3,7 @@ import java.sql.*;
 public class JdbcTest {
 
 	//basic read of database
-	public static void main(String[] args) throws SQLException {
+	JdbcTest() throws SQLException {
 		// TODO Auto-generated method stub
 
 		java.sql.Connection myConn = null;
@@ -60,11 +60,11 @@ public class JdbcTest {
 		//These call other classes
 		
 		//DataInsert dataInsert = new DataInsert();
-		UpdateDatabase updateDatabase = new UpdateDatabase();
+		//UpdateDatabase updateDatabase = new UpdateDatabase();
 	}
 	
 	//display data
-	private static void display(ResultSet myRs) throws SQLException {
+	public static void display(ResultSet myRs) throws SQLException {
 		while (myRs.next()) {
 			String lastName = myRs.getString("last_name");
 			String firstName = myRs.getString("first_name");
