@@ -19,8 +19,8 @@ public class DataInsert {
 		myStmt = myConn.createStatement();
 		
 		//give dynamic fields
-		int rowsAffected = myStmt.executeUpdate("insert into employees " + "(last_name, first_name, email, department, salary) "
-		+"values " + "('" + lastName + "','" + name + " ," + newEmail + "','" + position + "','" + newSalary + "')" );
+		myStmt.executeUpdate("insert into employees " + "(last_name, first_name, email, department, salary) "
+		+"values " + "('" + lastName + "','" + name + "','" + newEmail + "','" + position + "','" + newSalary + ")" );
 		
 		myRes = myStmt.executeQuery("select * from employees order by last_name");
 		

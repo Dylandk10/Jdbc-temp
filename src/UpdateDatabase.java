@@ -3,7 +3,7 @@ import java.sql.*;
 //basic update database..
 public class UpdateDatabase {
 	
-	public UpdateDatabase(String name, String lastName, String email, String position, int salary) throws SQLException {
+	public UpdateDatabase(String lastName, String fieldToChange, String resultField) throws SQLException {
 		Connection myConn = null;
 		Statement myStmt = null;;
 		
@@ -22,10 +22,10 @@ public class UpdateDatabase {
 		System.out.println("Before update...");
 		
 		//give dynamic fields
-		int roswAffected = myStmt.executeUpdate(
+		myStmt.executeUpdate(
 				"update employees " + 
-				"set email='" + email + "'" +
-				"where last_name='" + lastName + "' and first_name='" + name + "'");
+				"set " + fieldToChange + "='" + resultField  + "'" +
+				"where last_name='" + lastName + "'");
 		if(myStmt != null) {
 			myStmt.close();
 		}
