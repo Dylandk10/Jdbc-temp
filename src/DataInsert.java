@@ -12,8 +12,8 @@ public class DataInsert {
 		ResultSet myRes = null;
 		
 		String dbUrl = "jdbc:mysql://localhost:3306/demo";
-		String user = "student";
-		String pass = "student";
+		String user = "root";
+		String pass = "";
 		
 		myConn = DriverManager.getConnection(dbUrl, user, pass);
 		myStmt = myConn.createStatement();

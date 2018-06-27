@@ -54,10 +54,10 @@ public class App {
 			String newResult = null;
 			System.out.println("Last Name of person you wish to update?");
 			lastName = scanner.nextLine();
-			System.out.println("What field do you wish to change? firstName, lastName, email, potion, salary?");
+			System.out.println("What field do you wish to change? first_name, last_name, email, potion, salary?");
 			fieldToChange = scanner.nextLine();
 			if(!(fieldToChange.equals("salary"))) {
-				System.out.println("Change " + fieldToChange + "To?");
+				System.out.println("Change " + fieldToChange + " To?");
 				newResult = scanner.nextLine();
 				try {
 					UpdateDatabase updateData = new UpdateDatabase(lastName, fieldToChange, newResult);
@@ -66,7 +66,14 @@ public class App {
 					e.printStackTrace();
 				}
 			} else {
-				System.out.println("hold on");
+				System.out.println("Change salary To?");
+				newResult = scanner.nextLine();
+				try {
+					UpdateDatabase updataData = new UpdateDatabase(lastName, fieldToChange, newResult);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 

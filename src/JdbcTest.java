@@ -1,5 +1,6 @@
 import java.sql.*;
 
+//test class not needed for application
 public class JdbcTest {
 
 	//basic read of database
