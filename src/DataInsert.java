@@ -17,7 +17,6 @@ public class DataInsert {
 		
 		myConn = DriverManager.getConnection(dbUrl, user, pass);
 		myStmt = myConn.createStatement();
-		
 		//give dynamic fields
 		myStmt.executeUpdate("insert into employees " + "(last_name, first_name, email, department, salary) "
 		+"values " + "('" + lastName + "','" + name + "','" + newEmail + "','" + position + "','" + newSalary + ")" );

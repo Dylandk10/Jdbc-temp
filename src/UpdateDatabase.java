@@ -3,7 +3,6 @@ import java.sql.*;
 //basic update database..
 public class UpdateDatabase {
 	
-	@SuppressWarnings("null")
 	public UpdateDatabase(String lastName, String fieldToChange, String resultField) throws SQLException {
 		Connection myConn = null;
 		Statement myStmt = null;
