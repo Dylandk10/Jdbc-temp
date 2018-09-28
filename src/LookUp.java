@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LookUp {
-	public LookUp(String firstName) throws SQLException {
+	public LookUp(String lastName) throws SQLException {
 	Connection myConn = null;
 	PreparedStatement myStmt = null;
 	ResultSet myRes = null;
@@ -16,8 +16,8 @@ public class LookUp {
 	
 	myConn = DriverManager.getConnection(dbUrl, user, pass);
 	
-	myStmt = myConn.prepareStatement("select * from employees where first_name=?");
-	myStmt.setString(1, firstName);
+	myStmt = myConn.prepareStatement("select * from employees where last_name=?");
+	myStmt.setString(1, lastName);
 	myRes = myStmt.executeQuery();
 	display(myRes);
 	
