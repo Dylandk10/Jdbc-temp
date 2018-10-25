@@ -1,14 +1,18 @@
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
+//this is a system in and out for testing modules
 public class UserInput {
+	DerivativeLogic derivativeLogic = new DerivativeLogic();
 	String firstName = "";
 	String lastName = "";
 	String email = "";
 	String position = "";
 	int salary = 0;
 	public void mainMenu() {
-		System.out.println("new entry, command = entry || Look record command = lookup || Update record command = update");
+		System.out.println("new entry, command = entry || Look record command = lookup || Update record command = update || get derivative = derivative");
 		Scanner scanner = new Scanner(System.in);
 		String result = scanner.nextLine();
 		if(result.equals("lookup")) {
@@ -17,6 +21,11 @@ public class UserInput {
 			takeNewEntery();
 		} else if (result.equals("update")) {
 			updateUser();
+		} else if(result.equals("derivative")) {
+			enterFormula();
+		} else if(result.equals("find prime")) {
+			PrimeLogic primeLogic = new PrimeLogic();
+			primeLogic.findPrime();
 		}
 	}
 	//loop up user method 
@@ -114,4 +123,13 @@ public class UserInput {
 		}
 		return result;
 	}
+	//way for user to enter formula 
+	public void enterFormula() {
+		String stringFormula = "";
+		Scanner scannerFormula = new Scanner(System.in);
+		System.out.println("Enter second degree polynumeral");
+		stringFormula = scannerFormula.nextLine();
+		derivativeLogic.takeDerivative(stringFormula);
+	}
 }
+

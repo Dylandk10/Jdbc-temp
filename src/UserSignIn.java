@@ -37,7 +37,7 @@ public class UserSignIn {
 			myConn.close();
 		}
 	}
-		
+	//return true if user is in HR this allows the user to change fields
 	public Boolean isUserAdmin() throws SQLException {
 		Boolean result = null;
 		
