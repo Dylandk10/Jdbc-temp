@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //this is the main logic for finding prime numbers 
@@ -21,12 +22,25 @@ public class PrimeLogic {
 			}
 		}
 	}
+	public String checkIfListOfNumbers(String incomingStr) {
+		String value = "";
+		String[] holdArr;
+		int numberSendToIsPrime = 0;
+		if(incomingStr.contains("-")) {
+			holdArr = incomingStr.split("");
+			value = runLoopForPrimes(holdArr);
+			//value = "running listLoop";
+		} else {
+			value = isPrime(numberSendToIsPrime);
+		}
+		return value;
+	}
 	//check if it is prime 
 	public String isPrime(int num) {
 		boolean hold = false;
 		String value = "";
 		for(int i = 2; i < num/2; i++) {
-			if((num % i) == 0) {
+			if((num % i) == 0 || num == 4) {
 				hold = true;
 				break;
 			} 
@@ -37,6 +51,64 @@ public class PrimeLogic {
 			value = "Is prime";
 		}
 		return value;
+	}
+	//returns all number in the list that are not prime
+	public String runLoopForPrimes(String[] incomingArr) {
+		System.out.println(incomingArr[0] + " " + incomingArr[incomingArr.length-1]);
+		String value = "";
+		String returnValue = "";
+		int check = Integer.parseInt(incomingArr[0]);
+		//function toget the last intengers 
+		int checkLoop = getCheckLoop(incomingArr);
+		System.out.println("CheckValue : " + checkLoop);
+		ArrayList<Integer> intList= new ArrayList<Integer>();
+		int sendValue = 0;
+		
+		for(int i = check; i <= checkLoop; ++i) {
+			System.out.println("running firt if");
+			sendValue = i;
+			value = isPrime(sendValue).toLowerCase();
+			if(value.equals("not prime")) {
+				System.out.println("running second if");
+				intList.add(sendValue);
+			}
+		}
+		returnValue = intList.toString();
+		return returnValue;
+	}
+	//run threw array backwards to get the last number entered 
+	public int getCheckLoop(String[] arr) {
+		ArrayList<String> arrList = new ArrayList<String>();
+		String sumValue = "";
+		String finalString = "";
+		int returnValue = 0;
+		for(int i = arr.length - 1; i > 0; i--) {
+			if(isInteger(arr[i]) == true) {
+				arrList.add(arr[i]);
+			} else {
+				break;
+			}
+		}
+		//concat arrList to a string
+		for(String d : arrList) {
+			sumValue += d;
+		}
+		//reverse the string 
+        for(int i = sumValue.length() - 1; i >= 0; i--) {
+            finalString = finalString + sumValue.charAt(i);
+        }
+		returnValue = Integer.parseInt(finalString);
+		return returnValue;
+	}
+	//check is string is integer used for for loop through front end input  
+	public boolean isInteger( String input ) { //Pass in string
+	    try { //Try to make the input into an integer
+	        Integer.parseInt( input );
+	        return true; //Return true if it works
+	    }
+	    catch( Exception e ) { 
+	        return false; //If it doesn't work return false
+	    }
 	}
 	
 }

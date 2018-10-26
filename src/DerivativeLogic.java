@@ -55,7 +55,7 @@ public class DerivativeLogic {
 	public void formatDerivString(String str) {
 		String[] derivArr = str.split("");
 		int[] finalDerivArr = null;
-		ArrayList<Integer> list = new ArrayList();
+		ArrayList<Integer> list = new ArrayList<Integer>();
 		System.out.println(Arrays.toString(derivArr));
 		for(int i = 0; i < derivArr.length; i++) {
 			if(isInteger(derivArr[i])) {
@@ -67,7 +67,7 @@ public class DerivativeLogic {
 	/*	Need replace stringlist[i] with its self or x if it is one
 	 * Do this first */
 	public void formatFinalDeriv(ArrayList<Integer> list) {
-		ArrayList <String> stringList = new ArrayList();
+		ArrayList <String> stringList = new ArrayList<String>();
 		int i = 0;
 		while(i < list.size()) {
 			if(list.get(i) == 1) {

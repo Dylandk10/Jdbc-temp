@@ -15,6 +15,7 @@ public class App extends Application {
 	
 	Label label = new Label();
 	Label label2 = new Label();
+	Label label3 = new Label();
 	Label primeResult = new Label();
 	Label derivResult = new Label();
 	
@@ -34,16 +35,18 @@ public class App extends Application {
 		//set up rest of app
 		primaryStage.setTitle("Application");
 		label.setText("Enter the number");
+		label3.setText(" or \"num\"-\"num\"");
 		label2.setText("Enter quadratic form polly");
 		GridPane root = new GridPane();
 		root.add(buttonPrime, 0, 0);
-		root.add(buttonDeriv, 1, 0);
+		root.add(buttonDeriv, 2, 0);
 		root.add(label, 0, 2);
-		root.add(label2, 1, 2);
-		root.add(txtField, 0, 3);
+		root.add(label2, 2, 2);
+		root.add(label3, 0, 3);
+		root.add(txtField, 0, 4);
 		root.add(primeResult, 0, 4);
-		root.add(derivField, 1, 3);
-		root.add(derivResult, 1, 4);
+		root.add(derivField, 2, 3);
+		root.add(derivResult, 2, 4);
 		primaryStage.setScene(new Scene(root, 500,500));
 		primaryStage.show();
 		
@@ -53,14 +56,10 @@ public class App extends Application {
 		PrimeLogic primeLogic = new PrimeLogic();
 		if(e.getSource() == buttonPrime) {
 			String value = "";
+			String showValue = "";
 			value = txtField.getText();
-			
-			if(isInteger(value)) {
-				int sendValue = Integer.parseInt(value);
-				primeResult.setText(primeLogic.isPrime(sendValue));
-			} else {
-				primeResult.setText("Enter a Integer");
-			}
+			showValue = primeLogic.checkIfListOfNumbers(value);
+			primeResult.setText(showValue);
 		//this is for taking quadratic derivatives need toad poly derivatives 
 		} else if(e.getSource() == buttonDeriv) {
 			String value = "";
@@ -69,16 +68,6 @@ public class App extends Application {
 			showValue = user.takeDerivative(value);
 			derivResult.setText(showValue);
 		}
-	}
-	//connect to button pressed to check if string is integer 
-	public boolean isInteger( String input ) { //Pass in string
-	    try { //Try to make the input into an integer
-	        Integer.parseInt( input );
-	        return true; //Return true if it works
-	    }
-	    catch( Exception e ) { 
-	        return false; //If it doesn't work return false
-	    }
 	}
 
 }
