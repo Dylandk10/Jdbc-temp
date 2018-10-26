@@ -54,26 +54,22 @@ public class PrimeLogic {
 	}
 	//returns all number in the list that are not prime
 	public String runLoopForPrimes(String[] incomingArr) {
-		System.out.println(incomingArr[0] + " " + incomingArr[incomingArr.length-1]);
 		String value = "";
 		String returnValue = "";
 		int check = Integer.parseInt(incomingArr[0]);
 		//function toget the last intengers 
 		int checkLoop = getCheckLoop(incomingArr);
-		System.out.println("CheckValue : " + checkLoop);
 		ArrayList<Integer> intList= new ArrayList<Integer>();
 		int sendValue = 0;
 		
 		for(int i = check; i <= checkLoop; ++i) {
-			System.out.println("running firt if");
 			sendValue = i;
 			value = isPrime(sendValue).toLowerCase();
 			if(value.equals("not prime")) {
-				System.out.println("running second if");
 				intList.add(sendValue);
 			}
 		}
-		returnValue = intList.toString();
+		returnValue = "not prime: " + intList.toString();
 		return returnValue;
 	}
 	//run threw array backwards to get the last number entered 

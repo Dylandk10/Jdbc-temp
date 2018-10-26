@@ -44,7 +44,7 @@ public class App extends Application {
 		root.add(label2, 2, 2);
 		root.add(label3, 0, 3);
 		root.add(txtField, 0, 4);
-		root.add(primeResult, 0, 4);
+		root.add(primeResult, 0, 5);
 		root.add(derivField, 2, 3);
 		root.add(derivResult, 2, 4);
 		primaryStage.setScene(new Scene(root, 500,500));
